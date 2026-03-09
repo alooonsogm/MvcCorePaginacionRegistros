@@ -1,0 +1,68 @@
+﻿@model ModelEmpleadoDepart
+
+<h1 style="color:red">
+    Details Departamento
+</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id Depart</th>
+            <th>Nombre</th>
+            <th>Localidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Departamento.IdDepartamento</td>
+            <td>@Model.Departamento.Nombre</td>
+            <td>@Model.Departamento.Localidad</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Empleado de @Model.Departamento.Nombre</h2>
+<h4 style="color:blue">
+    Registro @ViewData["POSICION"] de @Model.NumRegistros
+</h4>
+
+<div>
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">
+            <a asp-controller="Paginacion" asp-action="Details" asp-route-posicion="1" asp-route-idDepart="@Model.Departamento.IdDepartamento">Primero</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-controller="Paginacion" asp-action="Details" asp-route-posicion="@ViewData["ANTERIOR"]" asp-route-idDepart="@Model.Departamento.IdDepartamento">Anterior</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-controller="Paginacion" asp-action="Details" asp-route-posicion="@ViewData["SIGUIENTE"]" asp-route-idDepart="@Model.Departamento.IdDepartamento">Siguiente</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-controller="Paginacion" asp-action="Details" asp-route-posicion="@Model.NumRegistros" asp-route-idDepart="@Model.Departamento.IdDepartamento">Ultimo</a>
+        </li>
+    </ul>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id Empleado</th>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Id Departamento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Empleado item in Model.Empleados)
+        {
+            <tr>
+                <td>@item.IdEmpleado</td>
+                <td>@item.Apellido</td>
+                <td>@item.Oficio</td>
+                <td>@item.Salario</td>
+                <td>@item.IdDepartamento</td>
+            </tr>
+        }
+    </tbody>
+</table>

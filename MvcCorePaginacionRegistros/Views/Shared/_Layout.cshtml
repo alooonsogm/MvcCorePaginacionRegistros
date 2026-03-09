@@ -20,14 +20,21 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        @await Component.InvokeAsync("MenuDepart")
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="RegistroVistaDepartamento">Paginacion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="GrupoVistaDepartamento">Paginacion en grupo</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="GrupoVistaDepartamento">Paginacion en grupo DEPT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="GrupoDepartamento">Paginacion en grupo(Procedure) DEPT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="GrupoEmpleado">Paginacion en grupo(Procedure) EMP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Paginacion" asp-action="GrupoEmpleadoOficio">Paginacion EMP por oficio</a>
                         </li>
                     </ul>
                 </div>
